@@ -3,12 +3,12 @@ defmodule DbProj.Repo.Migrations.CreateUsers do
 
   def change do
     create table(:users) do
-      add :firstName, :string
-      add :lastName, :string
-      add :username, :string
-      add :password, :string
-      add :email, :string
-      add :dateOfBirth, :date
+      add :firstName, :string, null: false
+      add :lastName, :string, null: false
+      add :username, :string, null: false
+      add :password, :string, null: false
+      add :email, :string, null: false
+      add :dateOfBirth, :date, null: false
 
       timestamps()
     end
