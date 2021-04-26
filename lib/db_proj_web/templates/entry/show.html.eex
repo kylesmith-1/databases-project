@@ -17,6 +17,21 @@
     <%= @entry.additionalNotes %>
   </li>
 
+  <li>
+    <strong>User ID:</strong>
+    <%= @entry.user_id %>
+  </li>
+
+  <li>
+    <strong>Company ID:</strong>
+    <%= @entry.company_id %>
+  </li>
+
+  <li>
+    <strong>Coopterm ID:</strong>
+    <%= @entry.coopterm_id %>
+  </li>
+
 </ul>
 
 <span><%= link "Edit", to: Routes.entry_path(@conn, :edit, @entry) %></span>

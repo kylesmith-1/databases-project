@@ -6,7 +6,7 @@ defmodule DbProj.Companies.Company do
     field :location, :string
     field :name, :string
 
-    belongs_to :entries, DbProj.Entries.Entry
+    has_many :entries, DbProj.Entries.Entry
 
     timestamps()
   end

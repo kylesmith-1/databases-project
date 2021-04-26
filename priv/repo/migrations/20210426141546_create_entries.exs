@@ -8,13 +8,13 @@ defmodule DbProj.Repo.Migrations.CreateEntries do
       add :additionalNotes, :text
       add :user_id, references(:users, on_delete: :nothing)
       add :company_id, references(:companies, on_delete: :nothing)
-      add :term, references(:coopterms, on_delete: :nothing)
+      add :coopterm_id, references(:coopterms, on_delete: :nothing)
 
       timestamps()
     end
 
     create index(:entries, [:user_id])
     create index(:entries, [:company_id])
-    create index(:entries, [:term])
+    create index(:entries, [:coopterm_id])
   end
 end

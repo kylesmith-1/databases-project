@@ -10,4 +10,8 @@
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
 
+alias DbProj.Repo
+alias DbProj.Coopterms.Coopterm
 
+spring = Repo.insert!(%Coopterm{term: "spring"})
+fall = Repo.insert!(%Coopterm{term: "fall"})
