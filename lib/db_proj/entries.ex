@@ -19,6 +19,7 @@ defmodule DbProj.Entries do
   """
   def list_entries do
     Repo.all(Entry)
+    
   end
 
   @doc """

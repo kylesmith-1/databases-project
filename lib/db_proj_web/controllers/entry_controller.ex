@@ -3,6 +3,9 @@ defmodule DbProjWeb.EntryController do
 
   alias DbProj.Entries
   alias DbProj.Entries.Entry
+  alias DbProj.Users
+  alias DbProj.Companies
+  alias DbProj.Coopterms
 
   def index(conn, _params) do
     entries = Entries.list_entries()
@@ -28,7 +31,10 @@ defmodule DbProjWeb.EntryController do
 
   def show(conn, %{"id" => id}) do
     entry = Entries.get_entry!(id)
-    render(conn, "show.html", entry: entry)
+    user = Users.get_user!(entry.user_id)
+    company = Companies.get_company!(entry.company_id)
+    coopterm = Coopterms.get_coopterm!(entry.coopterm_id)
+    render(conn, "show.html", entry: entry, user: user, company: company, coopterm: coopterm)
   end
 
   def edit(conn, %{"id" => id}) do

@@ -18,18 +18,18 @@
   </li>
 
   <li>
-    <strong>User ID:</strong>
-    <%= @entry.user_id %>
+    <strong>User's Username:</strong>
+    <%= @user.username %>
   </li>
 
   <li>
-    <strong>Company ID:</strong>
-    <%= @entry.company_id %>
+    <strong>Company:</strong>
+    <%= @company.name %>
   </li>
 
   <li>
     <strong>Coopterm ID:</strong>
-    <%= @entry.coopterm_id %>
+    <%= @coopterm.term %>
   </li>
 
 </ul>
