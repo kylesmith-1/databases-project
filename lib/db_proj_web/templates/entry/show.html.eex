@@ -1,0 +1,23 @@
+<h1>Show Entry</h1>
+
+<ul>
+
+  <li>
+    <strong>Drugtesting:</strong>
+    <%= @entry.drugTesting %>
+  </li>
+
+  <li>
+    <strong>Continuousdrugtesting:</strong>
+    <%= @entry.continuousDrugTesting %>
+  </li>
+
+  <li>
+    <strong>Additionalnotes:</strong>
+    <%= @entry.additionalNotes %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.entry_path(@conn, :edit, @entry) %></span>
+<span><%= link "Back", to: Routes.entry_path(@conn, :index) %></span>

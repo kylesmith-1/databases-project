@@ -5,6 +5,10 @@ defmodule DbProj.Coopterms.Coopterm do
   schema "coopterms" do
     field :term, :string
 
+    belongs_to :entries, DbProj.Entries.Entry
+
+    
+
     timestamps()
   end
 

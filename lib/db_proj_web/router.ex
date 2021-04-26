@@ -20,6 +20,7 @@ defmodule DbProjWeb.Router do
     resources "/users", UserController
     resources "/companies", CompanyController
     resources "/coopterms", CooptermController
+    resources "/entries", EntryController
   end
 
   # Other scopes may use custom stacks.

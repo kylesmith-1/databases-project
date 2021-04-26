@@ -10,6 +10,8 @@ defmodule DbProj.Users.User do
     field :password, :string
     field :username, :string
 
+    belongs_to :entries, DbProj.Entries.Entry
+
     timestamps()
   end
 
