@@ -19,6 +19,7 @@ defmodule DbProjWeb.Router do
     get "/", PageController, :index
     resources "/users", UserController
     resources "/companies", CompanyController
+    resources "/coopterms", CooptermController
   end
 
   # Other scopes may use custom stacks.

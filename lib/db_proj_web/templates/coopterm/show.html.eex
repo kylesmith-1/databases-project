@@ -1,0 +1,13 @@
+<h1>Show Coopterm</h1>
+
+<ul>
+
+  <li>
+    <strong>Term:</strong>
+    <%= @coopterm.term %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.coopterm_path(@conn, :edit, @coopterm) %></span>
+<span><%= link "Back", to: Routes.coopterm_path(@conn, :index) %></span>

@@ -1,0 +1,26 @@
+<h1>Listing Coopterms</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Term</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for coopterm <- @coopterms do %>
+    <tr>
+      <td><%= coopterm.term %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.coopterm_path(@conn, :show, coopterm) %></span>
+        <span><%= link "Edit", to: Routes.coopterm_path(@conn, :edit, coopterm) %></span>
+        <span><%= link "Delete", to: Routes.coopterm_path(@conn, :delete, coopterm), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Coopterm", to: Routes.coopterm_path(@conn, :new) %></span>

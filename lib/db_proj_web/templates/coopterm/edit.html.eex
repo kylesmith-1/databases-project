@@ -1,0 +1,5 @@
+<h1>Edit Coopterm</h1>
+
+<%= render "form.html", Map.put(assigns, :action, Routes.coopterm_path(@conn, :update, @coopterm)) %>
+
+<span><%= link "Back", to: Routes.coopterm_path(@conn, :index) %></span>
