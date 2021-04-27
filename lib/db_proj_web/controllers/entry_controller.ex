@@ -1,5 +1,6 @@
 defmodule DbProjWeb.EntryController do
   use DbProjWeb, :controller
+  require Logger
 
   alias DbProj.Entries
   alias DbProj.Entries.Entry
@@ -18,7 +19,9 @@ defmodule DbProjWeb.EntryController do
   end
 
   def create(conn, %{"entry" => entry_params}) do
-    case Entries.create_entry(entry_params) do
+    if (String.downcase(entry_params["coopterm_id"]) === "spring") do
+      entry_params_correct = %{entry_params | "coopterm_id" => 1}
+      case Entries.create_entry(entry_params_correct) do
       {:ok, entry} ->
         conn
         |> put_flash(:info, "Entry created successfully.")
@@ -26,7 +29,19 @@ defmodule DbProjWeb.EntryController do
 
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
-    end
+      end
+    else
+      entry_params_correct = %{entry_params | "coopterm_id" => 2}
+      case Entries.create_entry(entry_params_correct) do
+      {:ok, entry} ->
+        conn
+        |> put_flash(:info, "Entry created successfully.")
+        |> redirect(to: Routes.entry_path(conn, :show, entry))
+
+      {:error, %Ecto.Changeset{} = changeset} ->
+        render(conn, "new.html", changeset: changeset)
+      end
+    end 
   end
 
   def show(conn, %{"id" => id}) do
@@ -39,8 +54,10 @@ defmodule DbProjWeb.EntryController do
 
   def edit(conn, %{"id" => id}) do
     entry = Entries.get_entry!(id)
+    user = "http://localhost:4000/users/"<> to_string(entry.user_id) <> "/edit"
+    company = "http://localhost:4000/companies/"<> to_string(entry.company_id) <> "/edit"
     changeset = Entries.change_entry(entry)
-    render(conn, "edit.html", entry: entry, changeset: changeset)
+    render(conn, "edit.html", entry: entry, user: user, company: company, changeset: changeset)
   end
 
   def update(conn, %{"id" => id, "entry" => entry_params}) do

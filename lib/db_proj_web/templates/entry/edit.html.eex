@@ -1,5 +1,10 @@
 <h1>Edit Entry</h1>
 
+
+
+<p><a href=<%= @user %>>Edit Associated User</a></p>
+<p><a href=<%= @company %>>Edit Associated Company</a></p>
+
 <%= render "form.html", Map.put(assigns, :action, Routes.entry_path(@conn, :update, @entry)) %>
 
 <span><%= link "Back", to: Routes.entry_path(@conn, :index) %></span>

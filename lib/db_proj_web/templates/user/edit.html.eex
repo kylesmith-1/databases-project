@@ -1,5 +1,20 @@
 <h1>Edit User</h1>
 
+<table>
+  <thead>
+    <tr>
+      <th>Edit entries associated with this user</th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for entry <- @entries do %>
+    <tr>
+      <td><a href=<%= entry%>>Edit one of these entries</a></td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
 <%= render "form.html", Map.put(assigns, :action, Routes.user_path(@conn, :update, @user)) %>
 
 <span><%= link "Back", to: Routes.user_path(@conn, :index) %></span>

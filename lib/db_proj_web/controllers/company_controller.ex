@@ -3,6 +3,8 @@ defmodule DbProjWeb.CompanyController do
 
   alias DbProj.Companies
   alias DbProj.Companies.Company
+  alias DbProj.Entries
+  require Logger
 
   def index(conn, _params) do
     companies = Companies.list_companies()
@@ -33,8 +35,10 @@ defmodule DbProjWeb.CompanyController do
 
   def edit(conn, %{"id" => id}) do
     company = Companies.get_company!(id)
+    entries = Entries.entries_of_company_id(id)
+    entries_links = Entries.entry_links(entries)
     changeset = Companies.change_company(company)
-    render(conn, "edit.html", company: company, changeset: changeset)
+    render(conn, "edit.html", company: company, entries: entries_links, changeset: changeset)
   end
 
   def update(conn, %{"id" => id, "company" => company_params}) do

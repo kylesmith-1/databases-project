@@ -18,17 +18,17 @@
   </li>
 
   <li>
-    <strong>User's Username:</strong>
-    <%= @user.username %>
-  </li>
-
-  <li>
     <strong>Company:</strong>
     <%= @company.name %>
   </li>
 
   <li>
-    <strong>Coopterm ID:</strong>
+    <strong>User's Username:</strong>
+    <%= @user.username %>
+  </li>
+
+  <li>
+    <strong>Co-op Term:</strong>
     <%= @coopterm.term %>
   </li>
 

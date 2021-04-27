@@ -22,6 +22,21 @@ defmodule DbProj.Entries do
     
   end
 
+
+  def entries_of_company_id(id) do
+    all = list_entries()
+    Enum.filter(all, fn(x) -> to_string(x.company_id) === id end)
+  end
+
+  def entries_of_user_id(id) do
+    all = list_entries()
+    Enum.filter(all, fn(x) -> to_string(x.user_id) === id end)
+  end
+
+  def entry_links(list) do
+    Enum.map(list, fn(x) -> "http://localhost:4000/entries/" <> to_string(x.id) <> "/edit" end)
+  end
+
   @doc """
   Gets a single entry.
 

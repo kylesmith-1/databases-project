@@ -1,6 +1,7 @@
 defmodule DbProj.Entries.Entry do
   use Ecto.Schema
   import Ecto.Changeset
+  require Logger
 
   schema "entries" do
     field :additionalNotes, :string
@@ -25,7 +26,7 @@ defmodule DbProj.Entries.Entry do
   @doc false
   def changeset(entry, attrs) do
     entry
-    |> cast(attrs, [:drugTesting, :continuousDrugTesting, :additionalNotes, :user_id])
-    |> validate_required([:drugTesting, :continuousDrugTesting, :additionalNotes, :user_id])
+    |> cast(attrs, [:drugTesting, :continuousDrugTesting, :additionalNotes, :user_id, :company_id, :coopterm_id])
+    |> validate_required([:drugTesting, :continuousDrugTesting, :additionalNotes, :user_id, :company_id, :coopterm_id])
   end
 end

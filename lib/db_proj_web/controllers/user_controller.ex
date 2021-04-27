@@ -2,6 +2,7 @@ defmodule DbProjWeb.UserController do
   use DbProjWeb, :controller
 
   alias DbProj.Users
+  alias DbProj.Entries
   alias DbProj.Users.User
 
   def index(conn, _params) do
@@ -33,8 +34,10 @@ defmodule DbProjWeb.UserController do
 
   def edit(conn, %{"id" => id}) do
     user = Users.get_user!(id)
+    entries = Entries.entries_of_company_id(id)
+    entries_links = Entries.entry_links(entries)
     changeset = Users.change_user(user)
-    render(conn, "edit.html", user: user, changeset: changeset)
+    render(conn, "edit.html", user: user, entries: entries_links, changeset: changeset)
   end
 
   def update(conn, %{"id" => id, "user" => user_params}) do
