@@ -25,7 +25,7 @@
   <%= text_input f, :company_id %>
   <%= error_tag f, :company_id %>
 
-  <%= label f, :coopterm_id %>
+  <%= label f, "Co-op term (Spring or Fall)" %>
   <%= text_input f, :coopterm_id %>
   <%= error_tag f, :coopterm_id %>
 
