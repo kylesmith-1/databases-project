@@ -5,7 +5,7 @@ config :db_proj, DbProj.Repo,
   username: "db_proj",
   password: "atlan99",
   database: "db_proj_dev",
-  hostname: "localhost",
+  hostname: "http://dbproject.devcalibur.com",
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 

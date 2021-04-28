@@ -34,7 +34,7 @@ defmodule DbProj.Entries do
   end
 
   def entry_links(list) do
-    Enum.map(list, fn(x) -> "http://localhost:4000/entries/" <> to_string(x.id) <> "/edit" end)
+    Enum.map(list, fn(x) -> "http://dbproject.devcalibur.com/entries/" <> to_string(x.id) <> "/edit" end)
   end
 
   @doc """

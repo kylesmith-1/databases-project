@@ -54,8 +54,8 @@ defmodule DbProjWeb.EntryController do
 
   def edit(conn, %{"id" => id}) do
     entry = Entries.get_entry!(id)
-    user = "http://localhost:4000/users/"<> to_string(entry.user_id) <> "/edit"
-    company = "http://localhost:4000/companies/"<> to_string(entry.company_id) <> "/edit"
+    user = "http://dbproject.devcalibur.com/users/"<> to_string(entry.user_id) <> "/edit"
+    company = "http://dbproject.devcalibur.com/companies/"<> to_string(entry.company_id) <> "/edit"
     changeset = Entries.change_entry(entry)
     render(conn, "edit.html", entry: entry, user: user, company: company, changeset: changeset)
   end
