@@ -17,11 +17,11 @@
   <%= textarea f, :additionalNotes %>
   <%= error_tag f, :additionalNotes %>
 
-  <%= label f, :user_id %>
+  <%= label f, "User ID" %>
   <%= text_input f, :user_id %>
   <%= error_tag f, :user_id %>
 
-  <%= label f, :company_id %>
+  <%= label f, "Company ID" %>
   <%= text_input f, :company_id %>
   <%= error_tag f, :company_id %>
 
